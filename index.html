@@ -5,17 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Static Template</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/d8f0679be4.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <h1>RPS comming soon</h1>
+    <!-- Just an image -->
+    <nav class="navbar navbar-dark bg-dark justify-content-center">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-hand-rock"></i>
+
+        <i class="fas fa-hand-paper"></i>
+
+        <i class="fas fa-hand-scissors"></i>
+      </a>
+    </nav>
     <button onclick="decideWinner('r')">
-      R
+      <i class="fas fa-hand-rock"></i>
     </button>
     <button onclick="decideWinner('p')">
-      P
+      <i class="fas fa-hand-paper"></i>
     </button>
     <button onclick="decideWinner('s')">
-      S
+      <i class="fas fa-hand-scissors"></i>
     </button>
     <script>
       // function to controll the whole game
