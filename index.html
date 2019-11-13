@@ -71,6 +71,26 @@
           </div>
         </div>
       </div>
+      <div class="row justify-content-between mt-5">
+        <div class="col-5">
+          <div class="card">
+            <div class="card-body">
+              <h1 id="user-score" class="display-4 text-center">
+                0
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="card">
+            <div class="card-body">
+              <h1 id="comp-score" class="display-4 text-center">
+                0
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -127,9 +147,13 @@
           console.log(result);
           // render the game and the result
           const userJumboEl = document.getElementById("user-jumbo");
-          const userDisplayEl = document.getElementById("user-display");
           const compJumboEl = document.getElementById("comp-jumbo");
+
+          const userDisplayEl = document.getElementById("user-display");
           const compDisplyEl = document.getElementById("comp-display");
+
+          const userScoreEl = document.getElementById("user-score");
+          const compScoreEl = document.getElementById("comp-score");
 
           userDisplayEl.innerHTML =
             "<i class='fas fa-hand-" + userChoice + "'></i>";
@@ -169,6 +193,8 @@
           console.log(userScore, compScore);
 
           // render the scores
+          userScoreEl.innerHTML = userScore;
+          compScoreEl.innerHTML = compScore;
         }
         window.decideWinner = decideWinner;
 
