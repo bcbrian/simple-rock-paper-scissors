@@ -10,58 +10,72 @@
     <h1>RPS comming soon</h1>
     <script>
       // function to controll the whole game
-      // define scores
-      // handle the click of the three buttons
-      function decideWinner(userChoice) {
-        // create a random choice from the computer
-        const choices = ["r", "p", "s"];
-        const randomIndex = Math.floor(Math.random() * choices.length);
-        const compChoice = choices[randomIndex];
+      function rps() {
+        // define scores
+        let userScore = 0;
+        let computerScore = 0;
 
-        // process the reults of the user and the comp
-        console.log(userChoice, "vs", compChoice);
-        let result = "tie";
-        if (userChoice === "r") {
-          if (compChoice === "r") {
-            result = "tie";
+        // handle the click of the three buttons
+
+        function decideWinner(userChoice) {
+          // create a random choice from the computer
+          const choices = ["r", "p", "s"];
+          const randomIndex = Math.floor(Math.random() * choices.length);
+          const compChoice = choices[randomIndex];
+
+          // process the reults of the user and the comp
+          console.log(userChoice, "vs", compChoice);
+          let result = "tie";
+          if (userChoice === "r") {
+            if (compChoice === "r") {
+              result = "tie";
+            }
+            if (compChoice === "p") {
+              result = "loss";
+            }
+            if (compChoice === "s") {
+              result = "win";
+            }
           }
-          if (compChoice === "p") {
-            result = "loss";
+          if (userChoice === "p") {
+            if (compChoice === "r") {
+              result = "win";
+            }
+            if (compChoice === "p") {
+              result = "tie";
+            }
+            if (compChoice === "s") {
+              result = "loss";
+            }
           }
-          if (compChoice === "s") {
-            result = "win";
+          if (userChoice === "s") {
+            if (compChoice === "r") {
+              result = "loss";
+            }
+            if (compChoice === "p") {
+              result = "win";
+            }
+            if (compChoice === "s") {
+              result = "tie";
+            }
           }
+          console.log(result);
+          // adjust the scores
+          if (result === "win") {
+            userScore = userScore + 1;
+          }
+          if (result === "loss") {
+            computerScore = computerScore + 1;
+          }
+          console.log(userScore, computerScore);
+          // render the game and the result
+          // render the scores
         }
-        if (userChoice === "p") {
-          if (compChoice === "r") {
-            result = "win";
-          }
-          if (compChoice === "p") {
-            result = "tie";
-          }
-          if (compChoice === "s") {
-            result = "loss";
-          }
-        }
-        if (userChoice === "s") {
-          if (compChoice === "r") {
-            result = "loss";
-          }
-          if (compChoice === "p") {
-            result = "win";
-          }
-          if (compChoice === "s") {
-            result = "tie";
-          }
-        }
-        console.log(result);
+        decideWinner("r");
+
+        // Bonus: game of 5 or 7 or 11 and then reset
       }
-      decideWinner("r", "s");
-      // render the game and the result
-      // adjust the scores
-      // render the scores
-
-      // Bonus: game of 5 or 7 or 11 and then reset
+      rps();
     </script>
   </body>
 </html>
