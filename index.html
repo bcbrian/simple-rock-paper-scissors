@@ -8,6 +8,15 @@
   </head>
   <body>
     <h1>RPS comming soon</h1>
+    <button onclick="decideWinner('r')">
+      R
+    </button>
+    <button onclick="decideWinner('p')">
+      P
+    </button>
+    <button onclick="decideWinner('s')">
+      S
+    </button>
     <script>
       // function to controll the whole game
       function rps() {
@@ -16,7 +25,6 @@
         let computerScore = 0;
 
         // handle the click of the three buttons
-
         function decideWinner(userChoice) {
           // create a random choice from the computer
           const choices = ["r", "p", "s"];
@@ -71,7 +79,7 @@
           // render the game and the result
           // render the scores
         }
-        decideWinner("r");
+        window.decideWinner = decideWinner;
 
         // Bonus: game of 5 or 7 or 11 and then reset
       }
