@@ -12,9 +12,13 @@
       // function to controll the whole game
       // define scores
       // handle the click of the three buttons
-      // create a random choice from the computer
-      // process the reults of the user and the comp
-      function decideWinner(userChoice, compChoice) {
+      function decideWinner(userChoice) {
+        // create a random choice from the computer
+        const choices = ["r", "p", "s"];
+        const randomIndex = Math.floor(Math.random() * choices.length);
+        const compChoice = choices[randomIndex];
+
+        // process the reults of the user and the comp
         console.log(userChoice, "vs", compChoice);
         let result = "tie";
         if (userChoice === "r") {
