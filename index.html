@@ -30,35 +30,41 @@
     <div class="container">
       <div class="row justify-content-between mt-3">
         <div class="col-3 d-flex justify-content-center alingn-items-center">
-          <button class="btn btn-lg btn-primary" onclick="decideWinner('r')">
+          <button class="btn btn-lg btn-primary" onclick="decideWinner('rock')">
             <i class="fas fa-hand-rock"></i>
           </button>
         </div>
         <div class="col-3 d-flex justify-content-center alingn-items-center">
-          <button class="btn btn-lg btn-primary" onclick="decideWinner('p')">
+          <button
+            class="btn btn-lg btn-primary"
+            onclick="decideWinner('paper')"
+          >
             <i class="fas fa-hand-paper"></i>
           </button>
         </div>
         <div class="col-3 d-flex justify-content-center alingn-items-center">
-          <button class="btn btn-lg btn-primary" onclick="decideWinner('s')">
+          <button
+            class="btn btn-lg btn-primary"
+            onclick="decideWinner('scissors')"
+          >
             <i class="fas fa-hand-scissors"></i>
           </button>
         </div>
       </div>
       <div class="row justify-content-between mt-5">
         <div class="col-5">
-          <div class="jumbotron jumbotron-fluid bg-success">
+          <div id="user-jumbo" class="jumbotron jumbotron-fluid bg-seccondary">
             <div class="container">
-              <h1 class="display-4 text-center">
+              <h1 id="user-display" class="display-4 text-center">
                 <i class="fas fa-hand-rock"></i>
               </h1>
             </div>
           </div>
         </div>
         <div class="col-5">
-          <div class="jumbotron jumbotron-fluid bg-danger">
+          <div id="comp-jumbo" class="jumbotron jumbotron-fluid bg-seccondary">
             <div class="container">
-              <h1 class="display-4 text-center">
+              <h1 id="comp-display" class="display-4 text-center">
                 <i class="fas fa-hand-rock"></i>
               </h1>
             </div>
@@ -72,61 +78,96 @@
       function rps() {
         // define scores
         let userScore = 0;
-        let computerScore = 0;
+        let compScore = 0;
 
         // handle the click of the three buttons
         function decideWinner(userChoice) {
           // create a random choice from the computer
-          const choices = ["r", "p", "s"];
+          const choices = ["rock", "paper", "scissors"];
           const randomIndex = Math.floor(Math.random() * choices.length);
           const compChoice = choices[randomIndex];
 
           // process the reults of the user and the comp
           console.log(userChoice, "vs", compChoice);
+
           let result = "tie";
-          if (userChoice === "r") {
-            if (compChoice === "r") {
+          if (userChoice === "rock") {
+            if (compChoice === "rock") {
               result = "tie";
             }
-            if (compChoice === "p") {
+            if (compChoice === "paper") {
               result = "loss";
             }
-            if (compChoice === "s") {
+            if (compChoice === "scissors") {
               result = "win";
             }
           }
-          if (userChoice === "p") {
-            if (compChoice === "r") {
+          if (userChoice === "paper") {
+            if (compChoice === "rock") {
               result = "win";
             }
-            if (compChoice === "p") {
+            if (compChoice === "paper") {
               result = "tie";
             }
-            if (compChoice === "s") {
+            if (compChoice === "scissors") {
               result = "loss";
             }
           }
-          if (userChoice === "s") {
-            if (compChoice === "r") {
+          if (userChoice === "scissors") {
+            if (compChoice === "rock") {
               result = "loss";
             }
-            if (compChoice === "p") {
+            if (compChoice === "paper") {
               result = "win";
             }
-            if (compChoice === "s") {
+            if (compChoice === "scissors") {
               result = "tie";
             }
           }
           console.log(result);
+          // render the game and the result
+          const userJumboEl = document.getElementById("user-jumbo");
+          const userDisplayEl = document.getElementById("user-display");
+          const compJumboEl = document.getElementById("comp-jumbo");
+          const compDisplyEl = document.getElementById("comp-display");
+
+          userDisplayEl.innerHTML =
+            "<i class='fas fa-hand-" + userChoice + "'></i>";
+          compDisplyEl.innerHTML =
+            "<i class='fas fa-hand-" + compChoice + "'></i>";
           // adjust the scores
           if (result === "win") {
             userScore = userScore + 1;
+            userJumboEl.setAttribute(
+              "class",
+              "jumbotron jumbotron-fluid bg-success"
+            );
+            compJumboEl.setAttribute(
+              "class",
+              "jumbotron jumbotron-fluid bg-danger"
+            );
+          } else if (result === "loss") {
+            compScore = compScore + 1;
+            userJumboEl.setAttribute(
+              "class",
+              "jumbotron jumbotron-fluid bg-danger"
+            );
+            compJumboEl.setAttribute(
+              "class",
+              "jumbotron jumbotron-fluid bg-success"
+            );
+          } else {
+            userJumboEl.setAttribute(
+              "class",
+              "jumbotron jumbotron-fluid bg-seccondary"
+            );
+            compJumboEl.setAttribute(
+              "class",
+              "jumbotron jumbotron-fluid bg-seccondary"
+            );
           }
-          if (result === "loss") {
-            computerScore = computerScore + 1;
-          }
-          console.log(userScore, computerScore);
-          // render the game and the result
+          console.log(userScore, compScore);
+
           // render the scores
         }
         window.decideWinner = decideWinner;
