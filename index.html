@@ -27,15 +27,26 @@
         <i class="fas fa-hand-scissors"></i>
       </a>
     </nav>
-    <button onclick="decideWinner('r')">
-      <i class="fas fa-hand-rock"></i>
-    </button>
-    <button onclick="decideWinner('p')">
-      <i class="fas fa-hand-paper"></i>
-    </button>
-    <button onclick="decideWinner('s')">
-      <i class="fas fa-hand-scissors"></i>
-    </button>
+    <div class="container">
+      <div class="row justify-content-between mt-3">
+        <div class="col-3 d-flex justify-content-center alingn-items-center">
+          <button class="btn btn-lg btn-primary" onclick="decideWinner('r')">
+            <i class="fas fa-hand-rock"></i>
+          </button>
+        </div>
+        <div class="col-3 d-flex justify-content-center alingn-items-center">
+          <button class="btn btn-lg btn-primary" onclick="decideWinner('p')">
+            <i class="fas fa-hand-paper"></i>
+          </button>
+        </div>
+        <div class="col-3 d-flex justify-content-center alingn-items-center">
+          <button class="btn btn-lg btn-primary" onclick="decideWinner('s')">
+            <i class="fas fa-hand-scissors"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script>
       // function to controll the whole game
       function rps() {
