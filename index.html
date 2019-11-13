@@ -14,6 +14,45 @@
       // handle the click of the three buttons
       // create a random choice from the computer
       // process the reults of the user and the comp
+      function decideWinner(userChoice, compChoice) {
+        console.log(userChoice, "vs", compChoice);
+        let result = "tie";
+        if (userChoice === "r") {
+          if (compChoice === "r") {
+            result = "tie";
+          }
+          if (compChoice === "p") {
+            result = "loss";
+          }
+          if (compChoice === "s") {
+            result = "win";
+          }
+        }
+        if (userChoice === "p") {
+          if (compChoice === "r") {
+            result = "win";
+          }
+          if (compChoice === "p") {
+            result = "tie";
+          }
+          if (compChoice === "s") {
+            result = "loss";
+          }
+        }
+        if (userChoice === "s") {
+          if (compChoice === "r") {
+            result = "loss";
+          }
+          if (compChoice === "p") {
+            result = "win";
+          }
+          if (compChoice === "s") {
+            result = "tie";
+          }
+        }
+        console.log(result);
+      }
+      decideWinner("r", "s");
       // render the game and the result
       // adjust the scores
       // render the scores
